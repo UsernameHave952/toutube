@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuTube - Most Popular search system for YouTube</title>
+    <link rel="icon" href="TuTube.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            padding: 15px 20px;
+            border-radius: 70%;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #cc0000;
+            transform: scale(1.1);
+        }
+        .top-videos {
+            margin-top: 20px;
+        }
+        .video {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .video:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .video a {
+            text-decoration: none;
+            color: #ff0000;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .video a:hover {
+            color: #cc0000;
+        }
+        .video img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s;
+        }
+        .video img:hover {
+            transform: scale(1.05);
+        }
+        .special {
+            border: 3px solid #ff0000;
+            padding: 5px;
+            background-color: #ffefef;
+        }
+    </style>
+</head>
+<body>
+    <h1>TuTube</h1>
+    <input type="text" id="searchQuery" placeholder="Enter search query" onkeypress="handleKeyPress(event)">
+    <button onclick="searchYouTube()"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+    <div class="top-videos">
+        <h2>Top Videos</h2>
+        <div class="video">
+            <a href="https://youtube.com/watch?v=-CxTU-1mR4M" target="_blank"><img src="-CxTU-1mR4M-HQ.jpg" alt="">Something you must have done 3</a>
+        </div>
+        <div class="video">
+            <a href="https://youtu.be/3JZ_D3ELwOQ" target="_blank"><img src="3JZ_D3ELwOQ-HQ.jpg" alt="">Flexin' On Ya (2014)</a>
+        </div>
+        <div class="video special">
+            <h1>One of the most popular</h1>
+            <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank"><img src="dQw4w9WgXcQ-HQ.jpg" alt="">Rick Astley - Never Gonna Give You Up (Official Music Video)</a>
+        </div>
+    </div>
+
+    <script>
+        function searchYouTube() {
+            const query = document.getElementById('searchQuery').value;
+            const encodedQuery = encodeURIComponent(query);
+            const url = `https://www.youtube.com/results?search_query=${encodedQuery}`;
+            window.open(url, '_blank');
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                searchYouTube();
+            }
+        }
+    </script>
+</body>
+</html>
